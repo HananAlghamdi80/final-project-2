@@ -5,6 +5,7 @@ on:
     branches: [ "main", "test-cicd", "clean-main" ]
     paths:
       - "apps/backend/**"
+  workflow_dispatch:
 
 jobs:
   build-deploy:
