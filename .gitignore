@@ -1,0 +1,37 @@
+# Terraform files to ignore
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Backend & config (secrets / state)
+backend.json
+*.backend.json
+
+# Sensitive files
+*.secret
+*.pem
+*.key
+*.vault
+*.env
+
+# Local environment / IDE
+.vscode/
+.idea/
+*.iml
+
+# Mac / Linux system files
+.DS_Store
+Thumbs.db
+
+# Logs, temporary files
+*.log
+*.tmp
+infra/terraform/backend.json
