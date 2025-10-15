@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main", "test-cicd", "clean-main" ]
     paths:
-      - "apps/backend/**"
+      - "infra/terraform/devops-project2-ih/backend/**"
   workflow_dispatch:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build backend with Maven
-        working-directory: apps/backend
+        working-directory: infra/terraform/devops-project2-ih/backend
         run: mvn clean package -DskipTests=false
 
       - name: Analyze backend code with SonarCloud
@@ -43,10 +43,9 @@ jobs:
       - name: Build and push image to ACR
         run: |
           az acr login --name p2acrhanan123
-          docker build -t p2acrhanan123.azurecr.io/backend:latest ./apps/backend
+          docker build -t p2acrhanan123.azurecr.io/backend:latest ./infra/terraform/devops-project2-ih/backend
           docker push p2acrhanan123.azurecr.io/backend:latest
 
       - name: Deploy to Azure Container App
         run: |
           az containerapp update -n p2-backend -g p2-rg --image p2acrhanan123.azurecr.io/backend:latest
-
