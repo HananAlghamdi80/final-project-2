@@ -2,7 +2,7 @@ name: Backend CI/CD
 
 on:
   push:
-    branches: [ "main", "test-cicd" ]
+    branches: [ "main", "test-cicd", "clean-main" ]
     paths:
       - "apps/backend/**"
 
